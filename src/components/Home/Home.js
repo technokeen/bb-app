@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row'
 import Navbar from 'react-bootstrap/Navbar'
 import Pagination1 from '../Pagination/Pagination1'
 import {Link } from 'react-router-dom';
-
 import './home.css'
 
 function Home() {
