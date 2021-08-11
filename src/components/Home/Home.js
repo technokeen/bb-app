@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Navbar from 'react-bootstrap/Navbar'
 import Pagination1 from '../Pagination/Pagination1'
+import {Link } from 'react-router-dom';
+
 import './home.css'
 
 function Home() {
@@ -75,7 +77,7 @@ function Home() {
         <div className="App">
           <div className="navbar">
             <Navbar bg="dark" expand="lg">
-                  <h2>Breaking Bad App</h2>
+                  <Link to='/'><h2>Breaking Bad App</h2></Link>
                 
                       <input
                           type="search"
@@ -107,7 +109,7 @@ function Home() {
             <div className="buttonGroup">
               <button  onClick={()=>filterItem('Breaking Bad')}>Breaking Bad</button>
               <button  onClick={()=>filterItem('Better Call Saul')}>Better Call Saul</button>
-              <button  onClick={()=>setCards(cards)}>All</button>
+              <Link to='/'><button>All</button></Link>
             </div>
             
        
