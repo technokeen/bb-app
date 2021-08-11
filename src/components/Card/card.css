@@ -1,0 +1,21 @@
+.cardItem {
+  
+    display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin:10px;
+   font-size: 15px;
+   color:white;
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.cardItem .Info{
+    font-size: 20px;
+    font-weight: bold;
+    color:violet;
+    text-decoration: none;
+}
+
+
