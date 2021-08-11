@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Navbar from 'react-bootstrap/Navbar'
 import Pagination1 from '../Pagination/Pagination1'
-import {Link } from 'react-router-dom';
 import './home.css'
 
 function Home() {
@@ -17,6 +16,7 @@ function Home() {
     const [cardsPerPage, setCardsPerPage]= useState(10);
     const [search1, setSearch1] = useState("");
     const [filteredData, setFilteredData] = useState([]);
+    const[state, setState]=useState([])
     
   const fetchData= async () =>{
     setLoading(true);
@@ -51,7 +51,8 @@ function Home() {
           return ele.category === categItem;
           
       })
-      setCards(updatedItems)
+      setState(updatedItems)
+     
   }
 
     // Searching function 
@@ -76,7 +77,7 @@ function Home() {
         <div className="App">
           <div className="navbar">
             <Navbar bg="dark" expand="lg">
-                  <Link to='/'><h2>Breaking Bad App</h2></Link>
+               <h2>Breaking Bad App</h2>
                 
                       <input
                           type="search"
@@ -88,7 +89,7 @@ function Home() {
               </Navbar>
           </div>
           
-
+          
             <div className="main-content">
             <Row>
 
@@ -104,14 +105,32 @@ function Home() {
             </Row>
        
 
-            <h4 >Total Breaking bad characters:{cards.length}</h4>
+         
             <div className="buttonGroup">
               <button  onClick={()=>filterItem('Breaking Bad')}>Breaking Bad</button>
               <button  onClick={()=>filterItem('Better Call Saul')}>Better Call Saul</button>
-              <Link to='/'><button>All</button></Link>
+              <button onClick={()=>filterItem('')}>All</button>
             </div>
             
+            <Row>
+            <h4 >Breaking bad characters:{state.length}</h4>
+              
+                { ( state.length!=0 && state.map((c, index) =>
+     
+                    
+                    <Col sm="4">
+                      
+                      <CardComponent key={c.char_id} id={c.char_id} name={c.name} 
+                        occupation={c.occupation} status={c.status} img={c.img} 
+                        />
+                    </Col>
+                ))}
+            </Row>
+
+            <hr></hr>
        
+            <h4 >Total Breaking bad characters:{cards.length}</h4>
+
             <Row>
                 { (CurrentCards.length > 0 && CurrentCards.map((c, index) =>
      
